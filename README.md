@@ -20,6 +20,8 @@ https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20191106110733&Sea
 
 https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20191106111154&SearchText=16+pwm+PCA9685
 
+sugestion about servos: buy metal gear servos. the sg90 plastic does not worth it. they broke instanly.
+
 i2c wireing:
 leonardo SLC to SLC in PCA9685: slave clock
 leonardo SDA to SDA in PCA9685: slave data
@@ -35,3 +37,6 @@ install library inside arduino: https://learn.adafruit.com/16-channel-pwm-servo-
 load the source to arduino board
 
 develop some software that writes to serial port using any programming language
+
+
+
