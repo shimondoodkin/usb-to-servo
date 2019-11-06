@@ -57,7 +57,7 @@ void loop() {
   // print the string when a newline arrives:
   read_serial();
   if (stringComplete) {
-    main_work(inputString);
+    read_line(inputString);
     // clear the string:
     inputString = "";
     stringComplete = false;
@@ -66,8 +66,9 @@ void loop() {
     delay(10);
 }
 
-void main_work(String input) {
+void read_line(String input) {
   
+  // check for 3 parameters
   int p=input.indexOf(' ');
   if(p>0)
   {
@@ -94,6 +95,8 @@ void main_work(String input) {
    }
    Serial.println("input \""+sub1+"\" \""+sub2+"\" \""+sub3+"\" "); 
 
+   // here we have 3 paramters sub1,sub2,sub3
+
    bool servo_absolute=sub1.equals("a");
    bool servo_inverse=sub1.equals("i"); //    bool servo_inverse=!sub1.equals("d");
    
@@ -117,17 +120,21 @@ void main_work(String input) {
    
    int servo_mapped_value_in_range; 
    
+   //example for custom degree defaults for a custom servo:
    if(servo_n==0)
    {
     servoMin=96; servoMax=466;
     if(input_default) servo_inverse=true; 
    }
+    
    else
    {
     servoMin=96; servoMax=466;
     if(input_default) servo_inverse=false;
    }
 
+   // do the work:
+    
    if(servo_absolute)
      servo_mapped_value_in_range=servo_degree;
    else
